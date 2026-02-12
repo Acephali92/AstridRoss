@@ -1,3 +1,4 @@
+import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import ShopLinks from '@/components/ShopLinks';
 import ForWhom from '@/components/ForWhom';
@@ -10,6 +11,7 @@ import Footer from '@/components/Footer';
 export default function Home() {
   return (
     <main>
+      <Header />
       <Hero />
       <ShopLinks />
       <ForWhom />

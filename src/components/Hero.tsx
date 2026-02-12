@@ -1,78 +1,54 @@
 'use client';
 
+import Image from 'next/image';
+
 export default function Hero() {
   return (
-    <section id="ueber-das-buch" className="bg-[#F8F4ED] py-12 md:py-20">
-      <div className="container mx-auto px-4">
+    <section id="ueber-das-buch" className="relative bg-gradient-to-br from-[#F8F4ED] via-[#F5F0E8] to-[#EDE8E0] py-12 md:py-20 overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }} />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
             {/* Left Column - Book Cover */}
             <div className="flex justify-center md:justify-start">
-              <div className="relative">
-                {/* Book shadow */}
-                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-[85%] h-8 bg-black/20 blur-xl rounded-full" />
+              <div className="relative group">
+                {/* Glow effect behind book */}
+                <div className="absolute -inset-8 bg-gradient-to-r from-[#2A8C82]/20 via-[#F7C10B]/20 to-[#2A8C82]/20 rounded-3xl blur-3xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
 
-                {/* Book Cover */}
-                <div className="relative w-72 md:w-80 lg:w-96 aspect-[2/3] rounded-lg overflow-hidden shadow-2xl border border-white/20">
-                  {/* Book background with gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#1a6b63] via-[#0D4F4A] to-[#0a3d38]" />
-
-                  {/* Crack/shatter effect overlay */}
-                  <div className="absolute inset-0 opacity-20">
-                    <svg className="w-full h-full" viewBox="0 0 200 300" fill="none">
-                      <path d="M100 0 L95 50 L110 80 L90 120 L105 160 L85 200 L100 250 L95 300" stroke="white" strokeWidth="1" opacity="0.5"/>
-                      <path d="M50 100 L80 110 L90 120 L120 115 L150 105" stroke="white" strokeWidth="0.5" opacity="0.3"/>
-                      <path d="M40 180 L70 190 L105 160 L140 175 L170 165" stroke="white" strokeWidth="0.5" opacity="0.3"/>
-                      <path d="M0 150 L30 145 L50 160 L90 120 L130 140 L160 130 L200 145" stroke="white" strokeWidth="0.5" opacity="0.2"/>
-                    </svg>
+                {/* Floating animation wrapper */}
+                <div className="relative animate-float">
+                  {/* Book cover image */}
+                  <div className="relative w-72 md:w-80 lg:w-[420px] transition-all duration-500 ease-out group-hover:scale-[1.02] group-hover:-rotate-1">
+                    <Image
+                      src="/images/book-cover-1.svg"
+                      alt="Buchcover: Zeit der Ungewissheit von Astrid Ross - Ein Fantasy-Roman über Familie, Liebe und Überleben"
+                      width={420}
+                      height={600}
+                      priority
+                      className="drop-shadow-2xl"
+                      style={{
+                        filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.3)) drop-shadow(0 10px 20px rgba(42, 140, 130, 0.2))',
+                      }}
+                    />
                   </div>
-
-                  {/* Golden glow at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[#F7C10B]/30 to-transparent" />
-
-                  {/* Book title on cover */}
-                  <div className="absolute top-6 left-6 right-6 text-white">
-                    <h3 className="text-xl md:text-2xl font-bold leading-tight mb-2">Zeit der Ungewissheit</h3>
-                    <p className="text-sm opacity-80">Astrid Ross</p>
-                  </div>
-
-                  {/* Silhouettes */}
-                  <div className="absolute bottom-0 left-0 right-0 flex justify-center items-end">
-                    <svg className="w-3/4 h-auto" viewBox="0 0 200 180" fill="none">
-                      {/* Adult silhouette (left) */}
-                      <g fill="#0a3d38" opacity="0.9">
-                        {/* Head */}
-                        <ellipse cx="70" cy="45" rx="18" ry="22" />
-                        {/* Body */}
-                        <path d="M45 67 L95 67 L100 180 L40 180 Z" />
-                        {/* Arms hint */}
-                        <ellipse cx="38" cy="100" rx="8" ry="28" />
-                        <ellipse cx="102" cy="100" rx="8" ry="28" />
-                      </g>
-
-                      {/* Child silhouette (right) */}
-                      <g fill="#0a3d38" opacity="0.9">
-                        {/* Head */}
-                        <ellipse cx="140" cy="70" rx="14" ry="17" />
-                        {/* Body */}
-                        <path d="M122 87 L158 87 L162 180 L118 180 Z" />
-                        {/* Arms hint */}
-                        <ellipse cx="115" cy="115" rx="6" ry="22" />
-                        <ellipse cx="165" cy="115" rx="6" ry="22" />
-                      </g>
-                    </svg>
-                  </div>
-
-                  {/* Border frame */}
-                  <div className="absolute inset-2 border border-white/20 rounded pointer-events-none" />
                 </div>
+
+                {/* Decorative elements */}
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-[#F7C10B]/20 rounded-full blur-2xl" />
+                <div className="absolute -top-4 -left-4 w-16 h-16 bg-[#2A8C82]/20 rounded-full blur-xl" />
               </div>
             </div>
 
             {/* Right Column - Book Details */}
             <div className="text-center md:text-left">
               {/* Rating Badge */}
-              <div className="inline-flex items-center gap-2 bg-[#F7C10B] text-[#232021] px-4 py-2 rounded-full mb-6">
+              <div className="inline-flex items-center gap-2 bg-[#F7C10B] text-[#232021] px-5 py-2.5 rounded-full mb-4 shadow-lg shadow-[#F7C10B]/30">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
                     <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
@@ -82,49 +58,55 @@ export default function Hero() {
                 </div>
                 <span className="font-bold">4,9 / 5</span>
               </div>
-              <p className="text-[#232021]/60 text-sm mb-8 -mt-4 md:ml-2">
+              <p className="text-[#232021]/60 text-sm mb-8">
                 basierend auf <span className="font-semibold text-[#232021]">1.000</span> Bewertungen
               </p>
 
-              {/* Title */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#232021] mb-2 leading-tight">
-                Zeit der{' '}
-                <span className="relative inline-block">
-                  Ungewissheit
-                  <span className="absolute bottom-1 left-0 w-full h-2 bg-[#F7C10B] -z-10"></span>
-                </span>
-              </h1>
+              {/* Glassmorphism card for title area */}
+              <div className="relative">
+                {/* Title */}
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#232021] mb-3 leading-tight">
+                  Zeit der{' '}
+                  <span className="relative inline-block">
+                    <span className="relative z-10">Ungewissheit</span>
+                    <span className="absolute bottom-1 left-0 w-full h-3 bg-[#F7C10B] -z-0 rounded-sm"></span>
+                  </span>
+                </h1>
 
-              {/* Author */}
-              <p className="text-xl text-[#232021]/80 mb-6">
-                von <span className="font-semibold">Astrid Ross</span>
-              </p>
+                {/* Author */}
+                <p className="text-xl text-[#232021]/80 mb-6">
+                  von <span className="font-semibold text-[#2A8C82]">Astrid Ross</span>
+                </p>
 
-              {/* Subtitle */}
-              <p className="text-2xl md:text-3xl font-bold text-[#232021]/90 italic mb-10 leading-relaxed">
-                „Verannis Kampf – Zwischen Liebe, Pflicht und Überleben"
-              </p>
+                {/* Subtitle with glassmorphism effect */}
+                <div className="relative mb-10">
+                  <div className="absolute -inset-4 bg-white/40 backdrop-blur-sm rounded-2xl -z-10" />
+                  <p className="text-2xl md:text-3xl font-bold text-[#232021]/90 italic leading-relaxed py-4">
+                    „Verannis Kampf – Zwischen Liebe, Pflicht und Überleben"
+                  </p>
+                </div>
+              </div>
 
-              {/* Book Details - Clean List */}
-              <div className="space-y-3 mb-10">
+              {/* Book Details - Clean List with subtle styling */}
+              <div className="space-y-3 mb-10 bg-white/50 backdrop-blur-sm rounded-xl p-6 border border-white/60 shadow-sm">
                 <div className="flex flex-col md:flex-row md:gap-4">
-                  <span className="text-[#232021]/50 text-sm font-medium min-w-[100px]">ISBN/EAN:</span>
-                  <span className="text-[#232021]">9783758326356</span>
+                  <span className="text-[#2A8C82] text-sm font-medium min-w-[100px]">ISBN/EAN:</span>
+                  <span className="text-[#232021] font-medium">9783758326356</span>
                 </div>
                 <div className="flex flex-col md:flex-row md:gap-4">
-                  <span className="text-[#232021]/50 text-sm font-medium min-w-[100px]">Verlag:</span>
+                  <span className="text-[#2A8C82] text-sm font-medium min-w-[100px]">Verlag:</span>
                   <span className="text-[#232021]">BoD – Books on Demand</span>
                 </div>
                 <div className="flex flex-col md:flex-row md:gap-4">
-                  <span className="text-[#232021]/50 text-sm font-medium min-w-[100px]">Auflage:</span>
+                  <span className="text-[#2A8C82] text-sm font-medium min-w-[100px]">Auflage:</span>
                   <span className="text-[#232021]">1. Auflage, erschienen am 28.02.2024</span>
                 </div>
                 <div className="flex flex-col md:flex-row md:gap-4">
-                  <span className="text-[#232021]/50 text-sm font-medium min-w-[100px]">Sprache:</span>
+                  <span className="text-[#2A8C82] text-sm font-medium min-w-[100px]">Sprache:</span>
                   <span className="text-[#232021]">Deutsch</span>
                 </div>
                 <div className="flex flex-col md:flex-row md:gap-4">
-                  <span className="text-[#232021]/50 text-sm font-medium min-w-[100px]">Umfang:</span>
+                  <span className="text-[#2A8C82] text-sm font-medium min-w-[100px]">Umfang:</span>
                   <span className="text-[#232021]">274 Seiten</span>
                 </div>
               </div>
@@ -135,18 +117,18 @@ export default function Hero() {
                   href="https://www.amazon.de/Zeit-Ungewissheit-Geschichte-Familie-Wareck/dp/3758326354"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#F7C10B] text-[#232021] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#d4a50a] transition-all hover:shadow-lg inline-flex items-center justify-center gap-2"
+                  className="group bg-[#2A8C82] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#238377] transition-all duration-300 hover:shadow-xl hover:shadow-[#2A8C82]/30 hover:-translate-y-1 inline-flex items-center justify-center gap-2"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                   Jetzt Kaufen
                 </a>
                 <a
                   href="#rezensionen"
-                  className="border-2 border-[#232021] text-[#232021] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#232021] hover:text-white transition-all inline-flex items-center justify-center gap-2"
+                  className="group border-2 border-[#232021] text-[#232021] px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#232021] hover:text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1 inline-flex items-center justify-center gap-2"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                   </svg>
                   Rezensionen lesen
@@ -156,6 +138,21 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      {/* Custom CSS for floating animation */}
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+        .animate-float {
+          animation: float 4s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 }

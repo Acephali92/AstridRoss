@@ -17,31 +17,39 @@ export default function Hero() {
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
             {/* Left Column - Book Cover */}
             <div className="flex justify-center md:justify-start">
-              <div className="relative group">
-                {/* Glow effect behind book */}
-                <div className="absolute -inset-8 bg-gradient-to-r from-[#2A8C82]/20 via-[#F7C10B]/20 to-[#2A8C82]/20 rounded-3xl blur-3xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+              <div className="relative group" style={{ perspective: '1000px' }}>
+                {/* Soft realistic shadow under the book */}
+                <div
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[70%] h-[30px] bg-black/40 rounded-[50%] transition-all duration-500 group-hover:w-[75%] group-hover:bg-black/50"
+                  style={{
+                    filter: 'blur(20px)',
+                    transform: 'translateX(-50%) translateY(15px)',
+                  }}
+                />
 
-                {/* Floating animation wrapper */}
+                {/* Floating animation wrapper with 3D transform */}
                 <div className="relative animate-float">
-                  {/* Book cover image */}
-                  <div className="relative w-72 md:w-80 lg:w-[420px] transition-all duration-500 ease-out group-hover:scale-[1.02] group-hover:-rotate-1">
+                  {/* Book cover image - no border, pure floating effect */}
+                  <div
+                    className="relative w-72 md:w-80 lg:w-[400px] transition-all duration-700 ease-out group-hover:scale-[1.03]"
+                    style={{
+                      transform: 'rotateY(-5deg) rotateX(2deg)',
+                      transformStyle: 'preserve-3d',
+                    }}
+                  >
                     <Image
                       src="/images/book-cover-1.svg"
                       alt="Buchcover: Zeit der Ungewissheit von Astrid Ross - Ein Fantasy-Roman über Familie, Liebe und Überleben"
-                      width={420}
-                      height={600}
+                      width={400}
+                      height={580}
                       priority
-                      className="drop-shadow-2xl"
+                      className="w-full h-auto"
                       style={{
-                        filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.3)) drop-shadow(0 10px 20px rgba(42, 140, 130, 0.2))',
+                        filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15))',
                       }}
                     />
                   </div>
                 </div>
-
-                {/* Decorative elements */}
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-[#F7C10B]/20 rounded-full blur-2xl" />
-                <div className="absolute -top-4 -left-4 w-16 h-16 bg-[#2A8C82]/20 rounded-full blur-xl" />
               </div>
             </div>
 

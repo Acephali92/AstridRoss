@@ -90,7 +90,7 @@ export default function Hero() {
                 <div className="relative mb-10">
                   <div className="absolute -inset-4 bg-white/40 backdrop-blur-sm rounded-2xl -z-10" />
                   <p className="text-2xl md:text-3xl font-bold text-[#232021]/90 italic leading-relaxed py-4">
-                    „Verannis Kampf – Zwischen Liebe, Pflicht und Überleben"
+                    „Verannis Kampf – Zwischen Liebe, Pflicht und Überleben&rdquo;
                   </p>
                 </div>
               </div>

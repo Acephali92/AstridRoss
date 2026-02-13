@@ -9,7 +9,7 @@ const tags = [
 
 export default function ForWhom() {
   return (
-    <section className="py-16 md:py-24 bg-[#F8F4ED]">
+    <section id="lernen" className="py-16 md:py-24 bg-[#F8F4ED]">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-[#232021] mb-6">

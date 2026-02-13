@@ -2,7 +2,7 @@
 
 export default function AboutAuthor() {
   return (
-    <section className="py-16 md:py-24 bg-[#0D4F4A]">
+    <section id="autorin" className="py-16 md:py-24 bg-[#0D4F4A]">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">

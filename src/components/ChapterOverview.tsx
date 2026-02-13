@@ -39,7 +39,7 @@ export default function ChapterOverview() {
   const [activeChapter, setActiveChapter] = useState(0);
 
   return (
-    <section className="py-16 md:py-24 bg-[#F8F4ED]">
+    <section id="kapitel" className="py-16 md:py-24 bg-[#F8F4ED]">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -48,7 +48,7 @@ export default function ChapterOverview() {
               Was steht im Buch?
             </h2>
             <p className="text-[#232021]/70 max-w-2xl mx-auto">
-              Videos können mit Einstellungen wie „16:9", „4:3" und „9:16" Seitenverhältnissen
+              Videos können mit Einstellungen wie „16:9&rdquo;, „4:3&rdquo; und „9:16&rdquo; Seitenverhältnissen
               angepasst werden. Stelle sicher, dass diese Einstellungen mit der Art der Videos
               übereinstimmen, die du über das URL-Feld einfügst, um ein perfektes Layout zu erzielen.
             </p>

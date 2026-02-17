@@ -39,8 +39,20 @@ export default function ChapterOverview() {
   const [activeChapter, setActiveChapter] = useState(0);
 
   return (
-    <section id="kapitel" className="py-16 md:py-24 bg-[#F8F4ED]">
-      <div className="container mx-auto px-4">
+    <section id="kapitel" className="py-16 md:py-24 bg-[#F8F4ED] relative overflow-hidden">
+      {/* Subtle decorative vine corners */}
+      <svg className="absolute top-0 left-0 w-40 h-40 opacity-[0.05] text-[#0D4F4A]" viewBox="0 0 160 160" fill="none">
+        <path d="M0 0 Q50 20 30 70 Q10 120 60 100 Q110 80 80 130" stroke="currentColor" strokeWidth="1" fill="none"/>
+        <circle cx="30" cy="70" r="4" fill="currentColor" opacity="0.5"/>
+        <circle cx="60" cy="100" r="3" fill="currentColor" opacity="0.4"/>
+      </svg>
+      <svg className="absolute bottom-0 right-0 w-40 h-40 opacity-[0.05] text-[#0D4F4A] rotate-180" viewBox="0 0 160 160" fill="none">
+        <path d="M0 0 Q50 20 30 70 Q10 120 60 100 Q110 80 80 130" stroke="currentColor" strokeWidth="1" fill="none"/>
+        <circle cx="30" cy="70" r="4" fill="currentColor" opacity="0.5"/>
+        <circle cx="60" cy="100" r="3" fill="currentColor" opacity="0.4"/>
+      </svg>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
@@ -82,6 +94,8 @@ export default function ChapterOverview() {
                 <button
                   onClick={() => setActiveChapter(activeChapter === index ? -1 : index)}
                   className="w-full p-6 flex items-center gap-4 text-left"
+                  aria-expanded={activeChapter === index}
+                  aria-controls={`chapter-content-${index}`}
                 >
                   <div className="w-12 h-12 bg-[#F7C10B] rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-[#232021] font-bold text-lg">{chapter.number}</span>
@@ -103,7 +117,7 @@ export default function ChapterOverview() {
                 </button>
 
                 {activeChapter === index && (
-                  <div className="px-6 pb-6 border-t border-gray-100">
+                  <div id={`chapter-content-${index}`} className="px-6 pb-6 border-t border-gray-100">
                     <p className="text-[#232021]/80 mt-4 mb-6 leading-relaxed">
                       {chapter.description}
                     </p>

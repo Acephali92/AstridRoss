@@ -33,8 +33,15 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-16 md:py-24 bg-[#F8F4ED]">
-      <div className="container mx-auto px-4">
+    <section className="py-16 md:py-24 bg-[#F8F4ED] relative overflow-hidden">
+      {/* Subtle decorative flourish */}
+      <svg className="absolute top-12 left-1/2 -translate-x-1/2 w-32 h-8 opacity-[0.15] text-[#0D4F4A]" viewBox="0 0 160 40" fill="none">
+        <path d="M0 20 Q40 5 80 20 Q120 35 160 20" stroke="currentColor" strokeWidth="1" fill="none"/>
+        <circle cx="80" cy="20" r="4" fill="#F7C10B" opacity="0.6"/>
+        <path d="M70 20 Q80 10 90 20" stroke="currentColor" strokeWidth="0.8" fill="none"/>
+      </svg>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
@@ -57,6 +64,8 @@ export default function FAQ() {
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
                   className="w-full p-6 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                  aria-expanded={openIndex === index}
+                  aria-controls={`faq-answer-${index}`}
                 >
                   <span className="font-semibold text-[#232021] pr-4">{faq.question}</span>
                   <div
@@ -71,7 +80,7 @@ export default function FAQ() {
                 </button>
 
                 {openIndex === index && (
-                  <div className="px-6 pb-6">
+                  <div id={`faq-answer-${index}`} className="px-6 pb-6">
                     <p className="text-[#232021]/80 leading-relaxed border-t border-gray-100 pt-4">
                       {faq.answer}
                     </p>

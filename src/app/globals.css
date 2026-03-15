@@ -1,36 +1,63 @@
 @import "tailwindcss";
 
 :root {
-  /* Primary Colors */
-  --color-gold: #F7C10B;
-  --color-gold-dark: #d4a50a;
+  /* ========================================
+     Dark Fantasy Color Palette
+     ======================================== */
 
-  /* Background Colors */
-  --color-dark: #232021;
-  --color-dark-gray: #373737;
-  --color-cream: #F8F4ED;
-  --color-light-gray: #F2F2F2;
-  --color-teal: #0D4F4A;
-  --color-teal-light: #2A8C82;
+  /* Primary Dark Backgrounds */
+  --bg-void: #0a0a0f;
+  --bg-dark: #12111a;
+  --bg-card: #1a1825;
+  --bg-elevated: #252233;
+  --bg-surface: #1e1c28;
+
+  /* Accent Colors - Mystical */
+  --accent-gold: #d4a853;
+  --accent-gold-bright: #e8c067;
+  --accent-gold-dim: #a88a42;
+  --accent-amber: #e8a849;
+  --accent-purple: #8b5cf6;
+  --accent-purple-dim: #6d45c9;
+  --accent-teal: #14b8a6;
+  --accent-crimson: #dc2626;
 
   /* Text Colors */
-  --color-white: #FFFFFF;
-  --color-black: #000000;
+  --text-primary: #f5f0e6;
+  --text-secondary: #a8a3b3;
+  --text-muted: #8a8494;
+  --text-gold: #d4a853;
+
+  /* Glow Effects */
+  --glow-gold: rgba(212, 168, 83, 0.4);
+  --glow-gold-intense: rgba(212, 168, 83, 0.6);
+  --glow-purple: rgba(139, 92, 246, 0.3);
+  --glow-teal: rgba(20, 184, 166, 0.3);
+
+  /* Legacy support - mapped to new colors */
+  --color-gold: var(--accent-gold);
+  --color-gold-dark: var(--accent-gold-dim);
+  --color-dark: var(--bg-void);
+  --color-dark-gray: var(--bg-card);
+  --color-cream: var(--bg-dark);
+  --color-teal: var(--accent-purple);
+  --color-teal-light: var(--accent-teal);
+  --color-white: var(--text-primary);
 
   /* Fonts */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-serif: var(--font-playfair), 'Georgia', 'Times New Roman', serif;
+  --font-serif: var(--font-cinzel), 'Cinzel', 'Playfair Display', Georgia, serif;
+  --font-fantasy: var(--font-cinzel), 'Cinzel Decorative', Georgia, serif;
 }
 
 @theme inline {
-  --color-gold: var(--color-gold);
-  --color-gold-dark: var(--color-gold-dark);
-  --color-dark: var(--color-dark);
-  --color-dark-gray: var(--color-dark-gray);
-  --color-cream: var(--color-cream);
-  --color-light-gray: var(--color-light-gray);
-  --color-teal: var(--color-teal);
-  --color-teal-light: var(--color-teal-light);
+  --color-gold: var(--accent-gold);
+  --color-gold-dark: var(--accent-gold-dim);
+  --color-dark: var(--bg-void);
+  --color-dark-gray: var(--bg-card);
+  --color-cream: var(--bg-dark);
+  --color-teal: var(--accent-purple);
+  --color-teal-light: var(--accent-teal);
 }
 
 * {
@@ -42,16 +69,17 @@ html {
 }
 
 body {
-  background: var(--color-cream);
-  color: var(--color-dark);
+  background: var(--bg-void);
+  color: var(--text-primary);
   font-family: var(--font-primary);
   line-height: 1.6;
   margin: 0;
   padding: 0;
   position: relative;
+  min-height: 100vh;
 }
 
-/* Subtle parchment texture overlay */
+/* Subtle dark grain texture overlay */
 body::before {
   content: '';
   position: fixed;
@@ -61,9 +89,9 @@ body::before {
   bottom: 0;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.035;
+  opacity: 0.03;
   background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 
 /* Ensure content is above texture */
@@ -72,197 +100,274 @@ body > * {
   z-index: 2;
 }
 
-/* Custom scrollbar */
+/* ========================================
+   Custom Scrollbar - Dark Fantasy
+   ======================================== */
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-light-gray);
+  background: var(--bg-void);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-gold);
-  border-radius: 4px;
+  background: linear-gradient(180deg, var(--accent-gold-dim), var(--accent-purple-dim));
+  border-radius: 5px;
+  border: 2px solid var(--bg-void);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-gold-dark);
+  background: linear-gradient(180deg, var(--accent-gold), var(--accent-purple));
 }
 
-/* Button base styles */
+/* ========================================
+   Button Styles - Elegant & Subtle
+   ======================================== */
+
 .btn-primary {
-  background: var(--color-gold);
-  color: var(--color-dark);
-  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
+  color: var(--bg-void);
+  padding: 1rem 2rem;
   border-radius: 0.5rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(212, 168, 83, 0.15);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-primary:hover {
-  background: var(--color-gold-dark);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+  box-shadow: 0 0 25px rgba(212, 168, 83, 0.25), 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.btn-primary:hover::before {
+  left: 100%;
 }
 
 .btn-secondary {
   background: transparent;
-  color: var(--color-white);
-  padding: 0.75rem 1.5rem;
+  color: var(--text-secondary);
+  padding: 1rem 2rem;
   border-radius: 0.5rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: 2px solid var(--color-white);
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(212, 168, 83, 0.3);
   cursor: pointer;
+  position: relative;
 }
 
 .btn-secondary:hover {
-  background: var(--color-white);
-  color: var(--color-dark);
+  background: rgba(212, 168, 83, 0.08);
+  color: var(--accent-gold);
+  border-color: rgba(212, 168, 83, 0.5);
 }
 
-/* Section spacing */
+/* ========================================
+   Section Spacing
+   ======================================== */
+
 .section {
-  padding: 4rem 1rem;
+  padding: 5rem 1rem;
+  position: relative;
 }
 
 @media (min-width: 768px) {
   .section {
-    padding: 6rem 2rem;
+    padding: 7rem 2rem;
   }
 }
 
-/* Container */
+/* ========================================
+   Container
+   ======================================== */
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
-/* Typography - Elegant Serif Headings */
+/* ========================================
+   Typography - Refined Elegance
+   ======================================== */
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.2;
-  margin-bottom: 1rem;
-  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.03em;
+  color: var(--text-primary);
 }
 
 h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
+  font-size: clamp(2.75rem, 7vw, 5rem);
+  font-weight: 600;
+  text-shadow: 0 0 50px rgba(212, 168, 83, 0.15);
+  letter-spacing: 0.04em;
 }
 
 h2 {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  text-shadow: 0 0 40px rgba(212, 168, 83, 0.1);
 }
 
 h3 {
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-size: clamp(1.375rem, 3vw, 1.875rem);
+  font-weight: 500;
 }
 
-/* Link styles */
+p {
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+}
+
+/* Gold accent text - subtle */
+.text-gold {
+  color: var(--accent-gold);
+  text-shadow: 0 0 25px rgba(212, 168, 83, 0.2);
+}
+
+/* ========================================
+   Link Styles
+   ======================================== */
+
 a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 a:hover {
-  color: var(--color-gold);
+  color: var(--accent-gold);
+  text-shadow: 0 0 10px var(--glow-gold);
 }
 
-/* Image styles */
+/* ========================================
+   Image Styles
+   ======================================== */
+
 img {
   max-width: 100%;
   height: auto;
 }
 
 /* ========================================
-   CLS-Optimierung & Animationen
+   Animations - Mystical Effects
    ======================================== */
 
-/* Floating Animation für Book Cover (aus Hero.tsx verschoben) */
+/* Floating Animation */
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
   }
 }
 
 .animate-float {
-  animation: float 4s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
 }
 
-/* Reduzierte Animation bei Bewegungs-Präferenz */
+/* Glow Pulse */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px var(--glow-gold);
+  }
+  50% {
+    box-shadow: 0 0 40px var(--glow-gold-intense), 0 0 60px var(--glow-gold);
+  }
+}
+
+.animate-glow {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Text Shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, var(--text-primary), var(--accent-gold), var(--text-primary));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Star Twinkle */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* Slow Rotate */
+@keyframes slow-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Gradient Shift - for book border */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Fade In Up */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+/* Scroll-triggered animations */
 @media (prefers-reduced-motion: reduce) {
-  .animate-float {
+  .animate-float,
+  .animate-glow,
+  .text-shimmer,
+  .animate-fade-in-up {
     animation: none;
   }
 }
 
-/* CLS-Reduktion: Feste Aspect-Ratio für Buchcover */
-.book-cover-container {
-  aspect-ratio: 400 / 580;
-  width: 100%;
-  max-width: 400px;
-}
-
 /* ========================================
-   Mobile Typography Optimierung
-   ======================================== */
-
-@media (max-width: 640px) {
-  body {
-    font-size: 16px;
-    -webkit-text-size-adjust: 100%;
-  }
-
-  /* Erhöhte Tap-Target-Größe für bessere Touch-Bedienung */
-  button,
-  a,
-  [role="button"] {
-    min-height: 44px;
-  }
-
-  /* Bessere Zeilenhöhe für Fließtext auf Mobile */
-  p, li {
-    line-height: 1.7;
-  }
-}
-
-/* ========================================
-   Accessibility Verbesserungen
-   ======================================== */
-
-/* Skip-Link für Screenreader */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--color-dark);
-  color: var(--color-white);
-  padding: 8px 16px;
-  z-index: 100;
-  transition: top 0.3s;
-}
-
-.skip-link:focus {
-  top: 0;
-}
-
-/* Fokus-Stil für Tastaturnavigation */
-*:focus-visible {
-  outline: 2px solid var(--color-gold);
-  outline-offset: 2px;
-}
-
-/* ========================================
-   Shop Logo Karussell Animation
+   Shop Logo Carousel
    ======================================== */
 
 @keyframes scroll-logos {
@@ -275,138 +380,255 @@ img {
 }
 
 .animate-scroll-logos {
-  animation: scroll-logos 20s linear infinite;
+  animation: scroll-logos 25s linear infinite;
 }
 
 .animate-scroll-logos:hover {
   animation-play-state: paused;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .animate-scroll-logos {
-    animation: none;
-  }
-}
+/* ========================================
+   Card Styles - Elegant Glass
+   ======================================== */
 
-/* Card styles */
 .card {
-  background: var(--color-white);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(26, 24, 37, 0.5);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  border: 1px solid rgba(212, 168, 83, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(12px);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  border-color: rgba(212, 168, 83, 0.15);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25), 0 0 30px rgba(212, 168, 83, 0.08);
 }
 
 /* ========================================
-   Fantasy/Regency Atmosphere Elements
+   Elegant Glassmorphism
    ======================================== */
 
-/* Elegant floral vine divider */
-.section-divider {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 0;
-  opacity: 0.4;
+.glass-dark {
+  background: rgba(26, 24, 37, 0.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 168, 83, 0.08);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
 }
 
-.section-divider::before {
+.glass-subtle {
+  background: rgba(26, 24, 37, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* ========================================
+   Mystical Decorative Elements
+   ======================================== */
+
+/* Arcane Border Glow */
+.arcane-border {
+  position: relative;
+}
+
+.arcane-border::before {
   content: '';
   position: absolute;
-  width: 100%;
-  max-width: 600px;
-  height: 40px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 40'%3E%3Cpath d='M0,20 Q75,5 150,20 T300,20 T450,20 T600,20' fill='none' stroke='%230D4F4A' stroke-width='1' opacity='0.5'/%3E%3Ccircle cx='300' cy='20' r='6' fill='%23F7C10B' opacity='0.8'/%3E%3Cpath d='M280,20 Q290,10 300,20 Q310,30 320,20' fill='none' stroke='%230D4F4A' stroke-width='1'/%3E%3Cpath d='M260,20 Q270,25 280,20' fill='none' stroke='%230D4F4A' stroke-width='0.8'/%3E%3Cpath d='M320,20 Q330,15 340,20' fill='none' stroke='%230D4F4A' stroke-width='0.8'/%3E%3Cellipse cx='250' cy='20' rx='3' ry='5' fill='%230D4F4A' opacity='0.3' transform='rotate(-30 250 20)'/%3E%3Cellipse cx='350' cy='20' rx='3' ry='5' fill='%230D4F4A' opacity='0.3' transform='rotate(30 350 20)'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
-/* Inline decorative divider for within sections */
-.divider-ornament {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin: 2rem 0;
+  inset: -2px;
+  background: linear-gradient(45deg, var(--accent-gold), var(--accent-purple), var(--accent-gold));
+  border-radius: inherit;
+  z-index: -1;
   opacity: 0.5;
+  filter: blur(4px);
 }
 
-.divider-ornament::before,
-.divider-ornament::after {
-  content: '';
-  flex: 1;
-  max-width: 120px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-teal), transparent);
-}
-
-.divider-ornament-center {
-  width: 8px;
-  height: 8px;
-  background: var(--color-gold);
-  transform: rotate(45deg);
-  border-radius: 1px;
-}
-
-/* Fantasy golden accent underline for special text */
-.fantasy-underline {
-  position: relative;
-  display: inline-block;
-}
-
-.fantasy-underline::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
-  border-radius: 1px;
-}
-
-/* Subtle vignette effect for sections */
-.vignette-overlay {
+/* Vignette Effect */
+.vignette {
   position: relative;
 }
 
-.vignette-overlay::after {
+.vignette::after {
   content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 40%, var(--bg-void) 100%);
+}
+
+/* ========================================
+   CLS Optimization
+   ======================================== */
+
+.book-cover-container {
+  aspect-ratio: 400 / 580;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* ========================================
+   Skeleton Loading Animation
+   ======================================== */
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-card) 25%,
+    var(--bg-elevated) 50%,
+    var(--bg-card) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  border-radius: 0.5rem;
+}
+
+.skeleton-book {
+  aspect-ratio: 400 / 580;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* ========================================
+   Mobile Optimizations
+   ======================================== */
+
+@media (max-width: 640px) {
+  body {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+  }
+
+  p, li {
+    line-height: 1.7;
+  }
+}
+
+/* ========================================
+   Accessibility
+   ======================================== */
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--accent-gold);
+  color: var(--bg-void);
+  padding: 8px 16px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   Fantasy Input Styles
+   ======================================== */
+
+input, textarea {
+  background: var(--bg-surface);
+  border: 1px solid rgba(212, 168, 83, 0.2);
+  color: var(--text-primary);
+  border-radius: 0.5rem;
+  padding: 0.875rem 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 20px var(--glow-gold);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* ========================================
+   Starfield Background Effect
+   ======================================== */
+
+.starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.stars-layer {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  background: radial-gradient(ellipse at center, transparent 60%, rgba(35, 32, 33, 0.03) 100%);
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.8) 50%, transparent 50%),
+    radial-gradient(1px 1px at 30% 45%, rgba(255,255,255,0.6) 50%, transparent 50%),
+    radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.7) 50%, transparent 50%),
+    radial-gradient(2px 2px at 70% 35%, rgba(212,168,83,0.5) 50%, transparent 50%),
+    radial-gradient(1px 1px at 85% 60%, rgba(255,255,255,0.5) 50%, transparent 50%),
+    radial-gradient(1px 1px at 20% 70%, rgba(255,255,255,0.6) 50%, transparent 50%),
+    radial-gradient(2px 2px at 60% 80%, rgba(212,168,83,0.4) 50%, transparent 50%),
+    radial-gradient(1px 1px at 40% 90%, rgba(255,255,255,0.5) 50%, transparent 50%),
+    radial-gradient(1px 1px at 90% 85%, rgba(255,255,255,0.7) 50%, transparent 50%),
+    radial-gradient(1px 1px at 5% 50%, rgba(255,255,255,0.4) 50%, transparent 50%);
+  background-size: 250px 250px;
+  animation: twinkle 4s ease-in-out infinite alternate;
 }
 
-/* Aged paper corners effect */
-.aged-corners::before,
-.aged-corners::after {
-  content: '';
+.stars-layer-2 {
   position: absolute;
-  width: 100px;
-  height: 100px;
-  opacity: 0.04;
-  pointer-events: none;
-}
-
-.aged-corners::before {
   top: 0;
   left: 0;
-  background: radial-gradient(circle at top left, var(--color-dark), transparent 70%);
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(1px 1px at 15% 25%, rgba(255,255,255,0.5) 50%, transparent 50%),
+    radial-gradient(1px 1px at 45% 55%, rgba(255,255,255,0.4) 50%, transparent 50%),
+    radial-gradient(1px 1px at 75% 15%, rgba(255,255,255,0.6) 50%, transparent 50%),
+    radial-gradient(1px 1px at 25% 85%, rgba(139,92,246,0.4) 50%, transparent 50%),
+    radial-gradient(1px 1px at 95% 45%, rgba(255,255,255,0.5) 50%, transparent 50%);
+  background-size: 300px 300px;
+  animation: twinkle 6s ease-in-out infinite alternate-reverse;
 }
 
-.aged-corners::after {
-  bottom: 0;
-  right: 0;
-  background: radial-gradient(circle at bottom right, var(--color-dark), transparent 70%);
+/* Nebula/Ambient Glow */
+.nebula-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(212, 168, 83, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 30% at 50% 50%, rgba(20, 184, 166, 0.04) 0%, transparent 50%);
 }

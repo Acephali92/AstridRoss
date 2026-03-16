@@ -83,7 +83,7 @@ export default function Header() {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden p-2 text-[#232021]"
-            aria-label="Menü öffnen"
+            aria-label={mobileMenuOpen ? "Menü schließen" : "Menü öffnen"}
           >
             {mobileMenuOpen ? (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

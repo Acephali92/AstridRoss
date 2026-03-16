@@ -51,7 +51,7 @@ export default function ForWhom() {
             <p className="text-xl md:text-2xl text-[#232021]/70">
               Führt dich in die{' '}
               <span className="text-[#0D4F4A] font-semibold">verborgenen Geheimnisse</span>
-              {' '}von ...
+              {' '}der Familie Wareck.
             </p>
           </div>
         </div>

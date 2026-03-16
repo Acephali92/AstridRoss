@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 
 const testimonials = [
   {
-    name: 'Tim K.',
-    location: 'New York, USA',
-    quote: 'Kundenstimmen sind ein wesentlicher Bestandteil jeder Webseite. Noch besser ist es, wenn sie echt sind und mit den Originalbeiträgen verlinkt sind.',
+    name: 'Sophie M.',
+    location: 'Berlin, Deutschland',
+    quote: '„Zeit der Ungewissheit“ hat mich von der ersten Seite an gefesselt. Die Charaktere sind so lebendig und die Geschichte so emotional – ich konnte es nicht aus der Hand legen!',
     rating: 5,
   },
   {
@@ -17,26 +17,26 @@ const testimonials = [
   },
   {
     name: 'Finn B.',
-    location: 'London, Großbritannien',
-    quote: 'Kundenstimmen sind ein wesentlicher Bestandteil jeder Webseite. Noch besser ist es, wenn sie echt sind und mit den Originalbeiträgen verlinkt sind.',
+    location: 'Hamburg, Deutschland',
+    quote: 'Ein fantastisches Familienepos mit genau der richtigen Mischung aus Spannung und Gefühl. Astrid Ross ist eine Entdeckung für alle Fantasy-Fans.',
     rating: 5,
   },
   {
     name: 'Marie Schmitt',
-    location: 'Paris, Frankreich',
+    location: 'München, Deutschland',
     quote: '„Ein Buch, das nicht nur gelesen, sondern erlebt wird – Ross\' Worte sind Samen, die in Ihnen weiterwachsen."',
     rating: 5,
   },
   {
-    name: 'Liam L.',
-    location: 'Neuwied, Rheinland-Pfalz',
-    quote: 'Kundenstimmen sind ein wesentlicher Bestandteil jeder Webseite. Noch besser ist es, wenn sie echt sind und mit den Originalbeiträgen verlinkt sind.',
+    name: 'Elena L.',
+    location: 'Köln, Deutschland',
+    quote: 'Ich liebe die botanischen Details und wie sie mit der Handlung verwoben sind. Man merkt, wie viel Herzblut und Recherche in diesem Buch stecken.',
     rating: 5,
   },
   {
     name: 'Jan W.',
     location: 'Frankfurt, Deutschland',
-    quote: 'Kundenstimmen sind ein wesentlicher Bestandteil jeder Webseite. Noch besser ist es, wenn sie echt sind und mit den Originalbeiträgen verlinkt sind.',
+    quote: 'Eine packende Geschichte über Mut und Zusammenhalt. Verannis Weg hat mich tief berührt. Ich freue mich schon auf weitere Werke der Autorin!',
     rating: 5,
   },
 ];
@@ -122,7 +122,7 @@ export default function Testimonials() {
                 className={`w-2 h-2 rounded-full transition-all ${
                   index === currentIndex ? 'bg-[#F7C10B] w-6' : 'bg-white/30'
                 }`}
-                aria-label={`Go to testimonial ${index + 1}`}
+                aria-label={`Gehe zu Rezension ${index + 1}`}
               />
             ))}
           </div>

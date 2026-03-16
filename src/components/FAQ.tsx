@@ -42,8 +42,7 @@ export default function FAQ() {
               Häufig gestellte Fragen
             </h2>
             <p className="text-[#232021]/70">
-              Es ist wichtig, deine Stärken hervorzuheben. Bieten wir potenziellen Kunden einen
-              klaren Überblick darüber, was Sie von der Konkurrenz unterscheidet.
+              Hier finden Sie Antworten auf die am häufigsten gestellten Fragen zu Astrid Ross und ihrem Roman „Zeit der Ungewissheit“.
             </p>
           </div>
 

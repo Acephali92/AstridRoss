@@ -8,9 +8,9 @@ const chapters = [
     title: 'Eine Familie am Abgrund',
     description: 'Als Renald Wareck schwer verletzt aus dem Ausland zurückkehrt, droht seinen Töchtern Veranni und Dorika der gesellschaftliche und finanzielle Absturz. Ohne Versorger und mit einem unerwarteten Erbvetter vor der Tür scheint das Schicksal gegen sie zu spielen. Doch damit nicht genug: Ihre Cousine Nesetta ist auf derselben Reise verschollen – und die Zeit läuft davon.',
     highlights: [
-      'Eine langfristige Karrierevision schaffen',
-      'Verstehe deine Stärken und Schwächen',
-      'Erreichbare Karriereziele setzen',
+      'Rückkehr von Renald Wareck',
+      'Bedrohung der Familienehre',
+      'Das Rätsel um Nesetta',
     ],
   },
   {
@@ -18,9 +18,9 @@ const chapters = [
     title: 'Verannis Kampfgeist: Kein Raum für Niederlagen',
     description: 'Veranni Wareck, entschlossen und mutig, weigert sich, das Schicksal hinzunehmen. Während ihr Vater ums Überleben kämpft, setzt sie alles daran, ihre Schwester Dorika standesgemäß zu verheiraten, um die Familie zu retten. Doch ihre Pläne reichen weiter: Um Nesetta zu finden, reist sie in die Hauptstadt – und trifft dort auf zwei Männer, die ihr Leben durcheinanderwirbeln.',
     highlights: [
-      'Die Kraft des professionellen Networkings',
-      'Effektiver Beziehungsaufbau',
-      'Nutzung von Mentoring und Partnerschaften',
+      'Verannis Entschlossenheit',
+      'Reise in die Hauptstadt',
+      'Schicksalhafte Begegnungen',
     ],
   },
   {
@@ -28,9 +28,9 @@ const chapters = [
     title: 'Nesettas Überlebenskampf: Fremd, verletzt und allein',
     description: 'Während Veranni in der Hauptstadt kämpft, ringt ihre Cousine Nesetta in der Fremde um ihr Leben. Verletzt und ohne Verbündete, findet sie unerwartet Hilfe bei einem gescheiterten Attentäter, der selbst nach Sinn und Halt sucht. Ihr Weg ist geprägt von Gefahr, Vertrauensbrüchen – und der Frage, ob sie je nach Hause zurückkehren kann.',
     highlights: [
-      'Strategien für eine effektive Jobsuche',
-      'Verhandlung von Stellenangeboten',
-      'Kontinuierliches Lernen und Verbesserung der Fähigkeiten',
+      'Überleben in der Fremde',
+      'Unerwartete Verbündete',
+      'Gefahr und Vertrauen',
     ],
   },
 ];
@@ -48,9 +48,7 @@ export default function ChapterOverview() {
               Was steht im Buch?
             </h2>
             <p className="text-[#232021]/70 max-w-2xl mx-auto">
-              Videos können mit Einstellungen wie „16:9&rdquo;, „4:3&rdquo; und „9:16&rdquo; Seitenverhältnissen
-              angepasst werden. Stelle sicher, dass diese Einstellungen mit der Art der Videos
-              übereinstimmen, die du über das URL-Feld einfügst, um ein perfektes Layout zu erzielen.
+              Erfahren Sie mehr über die fesselnde Geschichte der Familie Wareck. Jedes Kapitel führt Sie tiefer in eine Welt voller Herausforderungen, Magie und menschlicher Stärke.
             </p>
           </div>
 
@@ -130,7 +128,7 @@ export default function ChapterOverview() {
               unvergesslicher Charaktere!
             </p>
             <p className="text-[#232021]/70 mb-8">
-              Erlebe die spannende Welt von ... durch die dramatische Familiengeschichte der Familie Wareck
+              Erlebe die spannende Welt von Zeit der Ungewissheit durch die dramatische Familiengeschichte der Familie Wareck
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
